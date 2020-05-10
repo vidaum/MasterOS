@@ -27,10 +27,11 @@
 				<option value="Reparo Não Autorizado">Reparo Não Autorizado</option>
 				<option value="Contato sem Sucesso">Contato sem Sucesso</option>
 				<option value="Pronto-Despachar">Pronto-Despachar</option>
-				<option value="Entregue - A Receber">Entregue - A Receber</option>
-				<option value="Entregue - Finalizado">Entregue - Finalizado</option>
+                <option value="Enviado">Enviado</option>
+                <option value="Entregue - A Receber">Entregue - A Receber</option>
 				<option value="Garantia">Garantia</option>
-				<option value="Abandonado">Abandonado</option>
+				<option value="Comprado pela Loja">Comprado pela Loja</option>
+                <option value="Abandonado">Abandonado</option>
             </select>
 
         </div>
@@ -61,8 +62,8 @@
                         <th width="10%">Data de Entrada</th>
                         <th width="8%">Valor Total</th>
                         <th width="8%">Faturado</th>
-                        <th width="16%">Status</th>
-                        <th width="25%">Ações</th>
+                        <th>Status</th>
+                        <th>Ações</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -81,46 +82,52 @@
                                 $dataFinal = "";
                             }
                             switch ($r->status) {
-                 case 'Orçamento':
+				case 'Orçamento':
                     $cor = '#CCCC00';
                     break;
- case 'Orçamento Concluido':
+				case 'Orçamento Concluido':
                     $cor = '#0066FF';
                     break;
- case 'Orçamento Aprovado':
-                    $cor = '#33CC66';
+				case 'Orçamento Aprovado':
+                    $cor = '#33FF66';
                     break;
- case 'Aguardando Peças':
+				case 'Aguardando Peças':
                     $cor = '#FF6600';
                     break;
- case 'Em Andamento':
+				case 'Em Andamento':
                     $cor = '#9933FF';
                     break;
- case 'Serviço Concluido':
-                    $cor = '#006633';
-                    break;
- case 'Sem Reparo':
-                    $cor = '#999999';
-                    break;
- case 'Reparo Não Autorizado':
-                    $cor = '#993300';
-                    break;
- case 'Contato sem Sucesso':
-                    $cor = '#660099';
-                    break;
- case 'Pronto-Despachar':
-                    $cor = '#33CCCC';
-                    break;
- case 'Entregue - A Receber':
-                    $cor = '#FF0000';
-                    break;
- case 'Entregue - Finalizado':
+				case 'Serviço Concluido':
                     $cor = '#0099FF';
                     break;
- case 'Garantia':
+				case 'Sem Reparo':
+                    $cor = '#999999';
+                    break;
+				case 'Reparo Não Autorizado':
+                    $cor = '#990000';
+                    break;
+				case 'Contato sem Sucesso':
+                    $cor = '#660099';
+                    break;
+				case 'Pronto-Despachar':
+                    $cor = '#33CCCC';
+                    break;
+				case 'Enviado':
+                    $cor = '#33CCCC';
+                    break;
+				case 'Entregue - A Receber':
+                    $cor = '#FF0000';
+                    break;
+				case 'Entregue - Faturado':
+                    $cor = '#006633';
+                    break;
+				case 'Garantia':
                     $cor = '#FF66CC';
                     break;
- case 'Abandonado':
+				case 'Comprado pela Loja':
+                    $cor = '#9999CC';
+                    break;
+					case 'Abandonado':
                     $cor = '#000000';
                     break;
                             }

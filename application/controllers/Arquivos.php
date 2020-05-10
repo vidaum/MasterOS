@@ -191,7 +191,7 @@ class Arquivos extends MY_Controller
         $this->load->library('zip');
         $path = $file->path;
         $this->zip->read_file($path);
-        $this->zip->download('file' . date('d-m-Y-H.i.s') . '.zip');
+        $this->zip->download('file' . date('d-m-y h:m:s') . '.zip');
     }
 
     public function excluir()
@@ -235,7 +235,8 @@ class Arquivos extends MY_Controller
         $config['upload_path'] = './assets/arquivos/' . $date;
         $config['allowed_types'] = '*';
         $config['max_size'] = 0;
-        $config['encrypt_name'] = false;
+        $config['remove_space'] = true;
+		$config['encrypt_name'] = false;
 
         if (!is_dir('./assets/arquivos/' . $date)) {
 

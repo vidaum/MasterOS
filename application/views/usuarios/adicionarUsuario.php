@@ -40,7 +40,7 @@
                     <div class="control-group">
                         <label for="telefone" class="control-label">Telefone<span class="required">*</span></label>
                         <div class="controls">
-                            <input id="telefone" type="text" name="telefone" value="<?php echo set_value('telefone'); ?>" />
+                            <input id="telefone" class="telefone1" type="text" name="telefone" value="<?php echo set_value('telefone'); ?>" />
                         </div>
                     </div>
 

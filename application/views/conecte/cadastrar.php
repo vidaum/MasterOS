@@ -52,9 +52,9 @@
                     </div>
 
                     <div class="control-group">
-                        <label for="celular" class="control-label">Celular</label>
+                        <label for="celular" class="control-label">Telefone 2</label>
                         <div class="controls">
-                            <input id="celular" type="text" name="celular" value="<?php echo set_value('celular'); ?>"/>
+                            <input id="celular" class="telefone1" type="text" name="celular" value="<?php echo set_value('celular'); ?>"/>
                         </div>
                     </div>
 

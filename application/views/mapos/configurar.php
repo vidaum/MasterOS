@@ -3,7 +3,7 @@
 <script src="<?php echo base_url()?>assets/js/funcoes.js"></script>
 <div class="row-fluid" style="margin-top:0">
     <div class="span12">
-        <div class="widget-box">
+      <div class="widget-box">
             <div class="widget-title">
                 <span class="icon">
                     <i class="fas fa-wrench"></i>
@@ -16,14 +16,15 @@
                 <div class="control-group">
                         <label for="app_name" class="control-label">Nome do Sistema</label>
                         <div class="controls">
-                            <input type="text" required name="app_name" value="<?= $configuration['app_name']?>">
+                            <input name="app_name" type="text" required value="<?= $configuration['app_name']?>" size="50">
                             <span class="help-inline">Nome do sistema</span>
                         </div>
-                    </div>
+                  </div>
                     <div class="control-group">
                         <label for="app_name" class="control-label">Termo de Uso</label>
                         <div class="controls">
-                            <input type="text" value="<?= $configuration['termo_uso']?>">
+                            <textarea name="termo_uso" cols="50" rows="4" id="termo_uso"><?= $configuration['termo_uso']?>
+                            </textarea>
                             <span class="help-inline">Termo de Uso OS</span>
                         </div>
                     </div>
@@ -44,9 +45,12 @@
                                 <option value="10" <?= $configuration['per_page'] == '10' ? 'selected' : ''; ?> >10</option>
                                 <option value="20" <?= $configuration['per_page'] == '20' ? 'selected' : ''; ?> >20</option>
                                 <option value="50" <?= $configuration['per_page'] == '50' ? 'selected' : ''; ?> >50</option>
+                                <option value="75" <?= $configuration['per_page'] == '75' ? 'selected' : ''; ?> >75</option>
                                 <option value="100" <?= $configuration['per_page'] == '100' ? 'selected' : ''; ?> >100</option>
                                 <option value="150" <?= $configuration['per_page'] == '150' ? 'selected' : ''; ?> >150</option>
                                 <option value="200" <?= $configuration['per_page'] == '200' ? 'selected' : ''; ?> >200</option>
+                                <option value="500">500</option>
+                                <option value="1000" <?= $configuration['per_page'] == '1000' ? 'selected' : ''; ?> >1000</option>
                             </select>
                             <span class="help-inline">Selecione quantos registros deseja exibir nas listas</span>
                         </div>
@@ -77,7 +81,8 @@
                     <div class="control-group">
                         <label for="app_name" class="control-label">Mensagem WhatsApp</label>
                         <div class="controls">
-                            <input type="text" required name="whats_app1" value="<?= $configuration['whats_app1']?>">
+                            <textarea name="whats_app1" cols="50" rows="3" required="required"><?= $configuration['whats_app1']?>
+                            </textarea>
                             <span class="help-inline">Mensagem</span>
                         </div>
                         <div class="controls">

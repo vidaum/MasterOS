@@ -66,9 +66,10 @@
                                                 <option value="Reparo Não Autorizado">Reparo Não Autorizado</option>
                                                 <option value="Contato sem Sucesso">Contato sem Sucesso</option>
                                                 <option value="Pronto-Despachar">Pronto-Despachar</option>
+                                                <option value="Enviado">Enviado</option>
                                                 <option value="Entregue - A Receber">Entregue - A Receber</option>
-                                                <option value="Entregue - Finalizado">Entregue - Finalizado</option>
                                                 <option value="Garantia">Garantia</option>
+                                                <option value="Comprado pela Loja">Comprado pela Loja</option>
                                                 <option value="Abandonado">Abandonado</option>
                                              </select>
                                         </div>

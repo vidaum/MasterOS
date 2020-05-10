@@ -27,6 +27,7 @@ class Mapos extends MY_Controller
 		$this->data['produtos'] = $this->mapos_model->getProdutosMinimo();
         $this->data['os'] = $this->mapos_model->getOsEstatisticas();
         $this->data['estatisticas_financeiro'] = $this->mapos_model->getEstatisticasFinanceiro();
+		$this->data['vendas_mes'] = $this->mapos_model->getEstatisticasVendasMes($this->input->get('year'));
         $this->data['menuPainel'] = 'Painel';
         $this->data['view'] = 'mapos/painel';
         return $this->layout();
@@ -102,7 +103,7 @@ class Mapos extends MY_Controller
         log_info('Efetuou backup do banco de dados.');
 
         $this->load->helper('download');
-        force_download('backup' . date('d-m-Y H:m:s') . '.zip', $backup);
+        force_download('backup' . date('d-m-y h:m:s') . '.zip', $backup);
     }
 
     public function emitente()
@@ -135,8 +136,8 @@ class Mapos extends MY_Controller
 
         $this->upload_config = [
             'upload_path' => $image_upload_folder,
-            'allowed_types' => 'png|jpg|jpeg|bmp',
-            'max_size' => 2048,
+            'allowed_types' => '*',
+            'max_size' => 0,
             'remove_space' => true,
             'encrypt_name' => true,
         ];
@@ -385,7 +386,7 @@ class Mapos extends MY_Controller
         $success = $this->github_updater->update();
 
         if ($success) {
-            $this->session->set_flashdata('success', 'Sistema atualizado com sucesso!');
+            $this->session->set_flashdata('success', 'Sistema atualizado com sucesso Abra a pasta "C:\wamp64\www" Para poder instalar o UpDate!');
         } else {
             $this->session->set_flashdata('error', 'Erro ao atualizar o Sistema!');
         }

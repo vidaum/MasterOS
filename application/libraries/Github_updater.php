@@ -97,8 +97,8 @@ class Github_updater
 
                 // Clean up
                 if ($this->ci->config->item('clean_update_files')) {
-                    shell_exec("rm -rf {$dir}");
-                    unlink("{$hash}.tgz");
+                    $this->deleteDirectory($dir);
+                    unlink("{$hash}.zip");
                 }
 
                 if ($this->commandExists('composer')) {
@@ -178,10 +178,21 @@ class Github_updater
     private function _get_and_extract($hash)
     {
         copy(self::GITHUB_URL.$this->ci->config->item('github_user').'/'.$this->ci->config->item('github_repo').'/zipball/'.$this->ci->config->item('github_branch'), "{$hash}.zip");
+
+        $unzip = new ZipArchive();
+
+        $output = $unzip->open("{$hash}.zip");
+        if ($output) {
+            $unzip->extractTo(getcwd());
+            $unzip->close();
+        } else {
+            throw new Error('Error opening zip file!');
+        }
+
         $files = scandir('.');
 
         foreach ($files as $file) {
-            if (strpos($file, $this->ci->config->item('github_user').'-'.$this->ci->config->item('github_repo')) !== true) {
+            if (strpos($file, $this->ci->config->item('github_user').'-'.$this->ci->config->item('github_repo')) !== false) {
                 return $file;
             }
         }
@@ -196,9 +207,7 @@ class Github_updater
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLINFO_HEADER_OUT, true);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, [
-            'User-Agent: Mapos'
-        ]);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, ['User-Agent: Mapos']);
 
         $response = curl_exec($ch);
 
@@ -229,7 +238,7 @@ class Github_updater
         );
 
         if (!$branchToUpdateFrom) {
-            throw new Exception('The branch to update from GitHub does not exist!');
+            throw new Exception('O ramo a ser atualizado no GitHub não existe!');
         }
 
         return $branchToUpdateFrom->commit->sha;
@@ -249,7 +258,7 @@ class Github_updater
         $version = $latestRelease->tag_name;
 
         if (!$version) {
-            throw new Exception('Error getting mapos version from GitHub!');
+            throw new Exception('Erro ao obter a versão do MasterOS no GitHub!');
         }
 
         return str_replace("v", "", $version);
@@ -265,8 +274,7 @@ class Github_updater
     {
         $whereIsCommand = (PHP_OS == 'WINNT') ? 'where' : 'which';
 
-        $process = proc_open(
-            "$whereIsCommand $command",
+        $process = proc_open("$whereIsCommand $command",
             [
                 0 => ["pipe", "r"], //STDIN
                 1 => ["pipe", "w"], //STDOUT
@@ -286,5 +294,28 @@ class Github_updater
         }
 
         return false;
+    }
+
+    private function deleteDirectory($dir)
+    {
+        if (!file_exists($dir)) {
+            return true;
+        }
+
+        if (!is_dir($dir)) {
+            return unlink($dir);
+        }
+
+        foreach (scandir($dir) as $item) {
+            if ($item == '.' || $item == '..') {
+                continue;
+            }
+
+            if (!$this->deleteDirectory($dir/$item)) {
+                return true;
+            }
+        }
+
+        return rmdir($dir);
     }
 }
