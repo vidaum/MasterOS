@@ -255,7 +255,7 @@ class Github_updater
             $this->_connect(self::API_URL.$this->ci->config->item('github_user').'/'.$this->ci->config->item('github_repo').'/releases/latest')
         );
 
-        $version = $latestRelease->tag_name;
+        $version = $latestRelease->name;
 
         if (!$version) {
             throw new Exception('Erro ao obter a versão do MasterOS no GitHub!');
