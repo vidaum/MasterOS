@@ -68,6 +68,10 @@
                                         <label for="garantia">Garantia</label>
                                         <input id="garantia" disabled="disabled" type="text" class="span12" name="garantia" value="<?php echo $result->garantia ?>" />
                                     </div>
+                                  <div class="span3">
+                                    <label for="rastreio">Rastreio</label>
+                                          <input id="rastreio" type="text" class="span12" name="rastreio" value="<?php echo $result->rastreio ?>" />
+										  </div>
                                 </div>
 
 

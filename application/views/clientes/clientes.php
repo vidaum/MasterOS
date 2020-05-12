@@ -11,15 +11,16 @@
     </div>
 
     <div class="widget-content nopadding">
-        <table width="100%" class="table table-bordered ">
+        <table class="table table-bordered ">
             <thead>
                 <tr>
-                    <th width="7%">Cod.</th>
+                    <th>Cod.</th>
+                    <th>Foto</th>
                     <th>Nome</th>
-                    <th width="13%">CPF/CNPJ</th>
-                    <th width="13%">Telefone</th>
-                    <th width="15%">Email</th>
-                    <th width="14%">Ações</th>
+                    <th>CPF/CNPJ</th>
+                    <th>Telefone</th>
+                    <th>Email</th>
+                    <th>Ações</th>
                 </tr>
             </thead>
             <tbody>
@@ -33,7 +34,8 @@
                     foreach ($results as $r) {
                         echo '<tr>';
                         echo '<td>' . $r->idClientes . '</td>';
-                        echo '<td>' . $r->nomeCliente . '</td>';
+						echo '<td><img src="' . $r->foto_url . '" width="100" height="100">';
+						echo '<td>' . $r->nomeCliente . '</td>';
                         echo '<td>' . $r->documento . '</td>';
                         echo '<td>' . $r->telefone . '</td>';
                         echo '<td>' . $r->email . '</td>';

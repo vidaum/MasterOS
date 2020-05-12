@@ -94,7 +94,12 @@
                             <input id="estado" type="text" name="estado" value="<?php echo set_value('estado'); ?>" />
                         </div>
                     </div>
-
+					<div class="control-group">
+                    <label for="logo" class="control-label"><span class="required">Logotipo*</span></label>
+                    <div class="controls">
+                        <input type="file" name="userfile" value="" />
+                    </div>
+                </div>
 
 
                     <div class="form-actions">

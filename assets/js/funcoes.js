@@ -30,7 +30,7 @@ $(function () {
             }
         };
     $('.telefone1').mask(telefoneMascara, telefoneOptions);
-    // FIM FUNÇÃO DE MASCARA TELEFONE
+    // FIM FUNÇÃO DE MASCARA TELEFONE	
 });
 
 $(document).ready(function () {

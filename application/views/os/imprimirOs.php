@@ -76,6 +76,15 @@ $totalProdutos = 0; ?>
 
                         <table class="table table-condensed">
                             <tbody>
+                            
+                            <?php if ($result->rastreio != null) { ?>
+                                    <tr>
+                                        <td><span style="font-size: 14px; ">
+                                            <b>Cod. de Rastreio:</b><br></span>
+                                            <?php echo htmlspecialchars_decode($result->rastreio) ?>
+                                        </td>
+                                    </tr>
+                                <?php } ?>
 
                                 <?php if ($result->descricaoProduto != null) { ?>
                                     <tr>
@@ -86,14 +95,7 @@ $totalProdutos = 0; ?>
                                     </tr>
                                 <?php } ?>
 
-                                <?php if ($result->defeito != null) { ?>
-                                    <tr>
-                                        <td><span style="font-size: 13px; ">
-                                            <b>DEFEITO APRESENTADO:</b><br></span>
-                                            <?php echo htmlspecialchars_decode($result->defeito) ?>
-                                        </td>
-                                    </tr>
-                                <?php } ?>
+                                
 
                                 <?php if ($result->observacoes != null) { ?>
                                     <tr>
@@ -151,7 +153,7 @@ $totalProdutos = 0; ?>
                         <?php } ?>
 <hr>
                         <?php if ($servicos != null) { ?>
-                            <table class="table table-bordered table-condensed">
+                      <table class="table table-bordered table-condensed">
                                 <thead>
                                     <tr>
                                         <th>Serviço</th>
@@ -189,13 +191,28 @@ $totalProdutos = 0; ?>
 
                         ?>
 
-                        <table class="table table-bordered table-condensed">
+                      <table class="table table-bordered table-condensed">
                             <tbody>
                                 <tr>
-                                        <td><div align="center">Termo de Uso<br><?= $configuration['termo_uso']?>
-                                        </td>
-                                    </tr>
-                                    <td><div align="center">Assinatura do Cliente</div><hr>
+                                        <td><div align="center">Termo de Uso
+                                          <table width="100%" border="1">
+                                            <tr>
+                                              <td><div align="center">
+                                                <?= $configuration['termo_uso']?>
+                                              </div></td>
+                                            </tr>
+                                          </table>
+                                        
+                                  </td>
+                              </tr>
+                                    <td><div align="center">Assinatura do Tecnico</div>
+                                    <div align="center"><?php echo $result->nome ?></div>
+                                    <br><hr>
+                                 </td>
+                                </tr>
+                                <td><div align="center">Assinatura do Cliente</div>
+                                <div align="center"><?php echo $result->nomeCliente ?></div>
+                                <br><hr>
                                  </td>
                                 </tr>
                             </tbody>

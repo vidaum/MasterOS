@@ -1,5 +1,9 @@
 <link rel="stylesheet" href="<?php echo base_url(); ?>assets/js/jquery-ui/css/smoothness/jquery-ui-1.9.2.custom.css" />
 <script type="text/javascript" src="<?php echo base_url() ?>assets/js/jquery-ui/js/jquery-ui-1.9.2.custom.js"></script>
+<script type="text/javascript" src="<?php echo base_url() ?>assets/js/jquery.validate.js"></script>
+<link rel="stylesheet" href="<?php echo base_url() ?>assets/trumbowyg/ui/trumbowyg.css">
+<script type="text/javascript" src="<?php echo base_url() ?>assets/trumbowyg/trumbowyg.js"></script>
+<script type="text/javascript" src="<?php echo base_url() ?>assets/trumbowyg/langs/pt_br.js"></script>
 
 <div class="row-fluid" style="margin-top:0">
     <div class="span12">
@@ -23,15 +27,12 @@
                             <input id="idDocumentos" type="hidden" name="idDocumentos" value="<?php echo $result->idDocumentos; ?> " />
                         </div>
                     </div>
-
-                    <div class="control-group">
-                        <label for="descricao" class="control-label">Descrição</label>
-                        <div class="controls">
-                            <textarea rows="3" cols="30" name="descricao" id="descricao"><?php echo $result->descricao; ?></textarea>
-                        </div>
-                    </div>
-
-                    <div class="control-group">
+						<div class="control-group">
+				<label for="descricao" class="control-label">Descrição</label>
+                        <div class="span7">
+				<textarea name="descricao" class="editor"><?php echo $result->descricao; ?></textarea>
+                  </div></div>
+                  <div class="control-group">
                         <label for="descricao" class="control-label">Data</label>
                         <div class="controls">
                             <input id="data" type="text" class="datepicker" name="data" value="<?php echo date('d/m/Y', strtotime($result->cadastro)); ?>" />
@@ -83,6 +84,13 @@
 
         $(".datepicker").datepicker({
             dateFormat: 'dd/mm/yy'
+        });
+    });
+</script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('.editor').trumbowyg({
+            lang: 'pt_br'
         });
     });
 </script>

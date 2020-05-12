@@ -93,7 +93,16 @@ $totalProdutos = 0; ?>
 
                     <div style="margin-top: 0; padding-top: 0">
 
-                        <?php if ($result->descricaoProduto != null) { ?>
+                        <?php if ($result->rastreio != null) { ?>
+                            <hr style="margin-top: 0">
+                            <h5>Cod. de Rastreio</h5>
+                            <p>
+                                <?php echo htmlspecialchars_decode($result->rastreio) ?>
+
+                            </p>
+                        <?php
+                        } ?>
+						<?php if ($result->descricaoProduto != null) { ?>
                             <hr style="margin-top: 0">
                             <h5>Descrição</h5>
                             <p>

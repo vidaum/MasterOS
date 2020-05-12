@@ -58,10 +58,10 @@
                     }
                     foreach ($results as $r) : ?>
                         <tr>
-							<td><?= $r->idDocumentos ?></td>
-							<td><a href="<?= $r->url ?>"> <img src=" <?= $r->url ?> "></a></div></td>
-                            <td><?= $r->documento ?></td>
-                            <td><?= date('d/m/Y', strtotime($r->cadastro)) ?></td>
+<td><?= $r->idDocumentos ?></td>
+<td><a href="<?= $r->url ?>"><img src=" <?= $r->url ?> "></td>
+<td><?= $r->documento ?></td>
+<td><?= date('d/m/Y', strtotime($r->cadastro)) ?></td>
                             <td><?= $r->descricao ?></td>
                             <td><?= $r->tamanho ?> KB</td>
                             <td><?= $r->tipo ?></td>
@@ -85,7 +85,7 @@
                             </td>
                         </tr>
                     <?php endforeach ?>
-                </tbody>
+              </tbody>
             </table>
         </div>
     </div>

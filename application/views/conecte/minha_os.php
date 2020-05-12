@@ -93,10 +93,20 @@
 
                                 <div style="margin-top: 0; padding-top: 0">
 
-                                    <?php if ($result->descricaoProduto != null || $result->defeito != null || $result->laudoTecnico != null || $result->observacoes) { ?>
+                                    <?php if ($result->rastreio != null || $result->descricaoProduto != null || $result->defeito != null || $result->laudoTecnico != null || $result->observacoes) { ?>
 
                                         <table class="table table-condensed">
                                             <tbody>
+                                            <?php if ($result->rastreio != null) { ?>
+                                                <tr>
+                                                    <td>
+                                                        <strong>Cod. de Rastreio</strong><br>
+                                                        <?php echo htmlspecialchars_decode($result->rastreio) ?>
+                                                    </td>
+                                                </tr>
+
+                                            <?php } ?>
+                                            
                                             <?php if ($result->descricaoProduto != null) { ?>
                                                 <tr>
                                                     <td>

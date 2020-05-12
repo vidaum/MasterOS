@@ -87,7 +87,7 @@ $totalProdutos = 0; ?>
 
                     <div style="margin-top: 0; padding-top: 0">
 
-                        <?php if ($result->descricaoProduto != null || $result->defeito != null || $result->laudoTecnico != null || $result->observacoes) { ?>
+                        <?php if ($result->rastreio != null || $result->descricaoProduto != null || $result->defeito != null || $result->laudoTecnico != null || $result->observacoes) { ?>
 
                             <table class="table table-condensed">
                                 <tbody>

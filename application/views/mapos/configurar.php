@@ -1,6 +1,12 @@
 <script src="<?php echo base_url()?>assets/js/jquery.mask.min.js"></script>
 <script src="<?php echo base_url()?>assets/js/sweetalert2.all.min.js"></script>
 <script src="<?php echo base_url()?>assets/js/funcoes.js"></script>
+<link rel="stylesheet" href="<?php echo base_url(); ?>assets/js/jquery-ui/css/smoothness/jquery-ui-1.9.2.custom.css" />
+<script type="text/javascript" src="<?php echo base_url() ?>assets/js/jquery-ui/js/jquery-ui-1.9.2.custom.js"></script>
+<script type="text/javascript" src="<?php echo base_url() ?>assets/js/jquery.validate.js"></script>
+<link rel="stylesheet" href="<?php echo base_url() ?>assets/trumbowyg/ui/trumbowyg.css">
+<script type="text/javascript" src="<?php echo base_url() ?>assets/trumbowyg/trumbowyg.js"></script>
+<script type="text/javascript" src="<?php echo base_url() ?>assets/trumbowyg/langs/pt_br.js"></script>
 <div class="row-fluid" style="margin-top:0">
     <div class="span12">
       <div class="widget-box">
@@ -21,13 +27,12 @@
                         </div>
                   </div>
                     <div class="control-group">
-                        <label for="app_name" class="control-label">Termo de Uso</label>
-                        <div class="controls">
-                            <textarea name="termo_uso" cols="50" rows="4" id="termo_uso"><?= $configuration['termo_uso']?>
-                            </textarea>
-                            <span class="help-inline">Termo de Uso OS</span>
-                        </div>
-                    </div>
+                        <label for="app_name" class="control-label">Termo de Uso OS</label>
+                        <div class="span5">
+<textarea name="termo_uso" class="editor"><?= $configuration['termo_uso']?></textarea>
+                  </div></div>
+                    
+                    
                     <div class="control-group">
                         <label for="app_theme" class="control-label">Tema do Sistema</label>
                         <div class="controls">
@@ -119,5 +124,12 @@
         if (confirm('Confirma a atualização do mapos?')) {
             window.location = "<?= site_url('mapos/atualizarSistema') ?>"
         }
+    });
+</script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('.editor').trumbowyg({
+            lang: 'pt_br'
+        });
     });
 </script>

@@ -2,12 +2,13 @@
 
 $config =
 
-array('clientes' => array(array(
+	array('clientes' => array(
+	array(
     'field' => 'nomeCliente',
     'label' => 'Nome',
     'rules' => 'required|trim',
 ),
-    array(
+	array(
         'field' => 'documento',
         'label' => 'CPF/CNPJ',
         'rules' => 'required|trim',
@@ -185,6 +186,11 @@ array('clientes' => array(array(
             'field' => 'usuarios_id',
             'label' => 'usuarios_id',
             'rules' => 'trim|required',
+        ),
+        array(
+            'field' => 'rastreio',
+            'label' => 'rastreio',
+            'rules' => 'trim',
         ),
         array(
             'field' => 'laudoTecnico',
